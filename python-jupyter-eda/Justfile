@@ -1,0 +1,11 @@
+set shell := ["cmd.exe", "/c"]
+
+build:
+	docker build -t dspython .
+
+run:
+	docker run --rm -it -p 8888:8888 -v {{justfile_directory()}}:/app dspython
+
+clean:
+	del data.pkl
+
